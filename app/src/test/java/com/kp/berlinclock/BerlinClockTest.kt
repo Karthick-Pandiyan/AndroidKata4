@@ -72,10 +72,10 @@ class BerlinClockTest {
 
     @Test
     fun `Given getFiveMinutesRow function returns unexpected five minutes row when minutes are passed`(){
-        Assert.assertNotEquals("YYRYYRYYRYY", getSingleMinuteRow(0))
-        Assert.assertNotEquals("YYRYYRYYRYY", getSingleMinuteRow(4))
-        Assert.assertNotEquals("OOOOOOOOOOO", getSingleMinuteRow(23))
-        Assert.assertNotEquals("YYRYYRYOOOO", getSingleMinuteRow(35))
+        Assert.assertNotEquals("YYRYYRYYRYY", getFiveMinutesRow(0))
+        Assert.assertNotEquals("YYRYYRYYRYY", getFiveMinutesRow(4))
+        Assert.assertNotEquals("OOOOOOOOOOO", getFiveMinutesRow(23))
+        Assert.assertNotEquals("YYRYYRYOOOO", getFiveMinutesRow(35))
     }
 
     @Throws(ParseException::class)
