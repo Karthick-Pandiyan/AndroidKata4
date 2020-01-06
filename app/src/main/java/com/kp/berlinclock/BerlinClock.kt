@@ -7,7 +7,13 @@ import java.util.*
 
 class BerlinClock {
 
-
+    /**
+     * Transforms the time into the Berlin Clock format.
+     * This method returns an array with four Strings representing the lamp's state O (off), Y (yellow> and R (red).
+     *
+     * @param time The time to transform in the format HH:mm:ss
+     * @return The time in the Berlin Clock format.
+     */
     @Throws(ParseException::class)
     fun transformToBerlinTime(time: String): String {
         verifyTimeFormat(time)
