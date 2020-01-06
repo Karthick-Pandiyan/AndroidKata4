@@ -1,6 +1,7 @@
 package com.kp.berlinclock
 
 import org.apache.commons.validator.routines.TimeValidator
+import org.junit.Assert
 import org.junit.Test
 import java.lang.IllegalArgumentException
 import java.text.ParseException
@@ -32,6 +33,11 @@ class BerlinClockTest {
     @Test(expected = Test.None::class)
     fun `Given verifyTimeFormat function returns no invalid format exception when valid time format passed`(){
         verifyTimeFormat("12:00:00")
+    }
+
+    @Test
+    fun `Given getSingleMinuteRow function not returns "0000" when minute is "59"`(){
+        Assert.assertNotEquals("OOOO", getSingleMinuteRow(59))
     }
 
     @Throws(ParseException::class)
