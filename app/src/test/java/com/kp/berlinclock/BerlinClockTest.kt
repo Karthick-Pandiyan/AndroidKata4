@@ -45,6 +45,11 @@ class BerlinClockTest {
         Assert.assertEquals("OOOO", getSingleMinuteRow(0))
     }
 
+    @Test
+    fun `Given getSingleMinuteRow function returns "YYYY" when minute is "59"`(){
+        Assert.assertEquals("YYYY", getSingleMinuteRow(59))
+    }
+
     @Throws(ParseException::class)
     fun verifyTimeFormat(time: String) {
         if(TimeValidator.getInstance().validate(time, "HH:mm:ss", Locale.forLanguageTag("de-DE")) == null) {
