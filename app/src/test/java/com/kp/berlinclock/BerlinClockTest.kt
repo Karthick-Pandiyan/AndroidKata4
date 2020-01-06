@@ -115,4 +115,13 @@ class BerlinClockTest {
         }
         return result.toString()
     }
+
+    private fun getSingleHourRow(hours: Int): String {
+        val result = StringBuilder("OOOO")
+
+        for (i in 0 until hours % 5) {
+            result.replace(i, i + 1, "R")
+        }
+        return result.toString()
+    }
 }
