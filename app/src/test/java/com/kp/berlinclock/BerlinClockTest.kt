@@ -75,7 +75,7 @@ class BerlinClockTest {
         Assert.assertNotEquals("YYRYYRYYRYY", getFiveMinutesRow(0))
         Assert.assertNotEquals("YYRYYRYYRYY", getFiveMinutesRow(4))
         Assert.assertNotEquals("OOOOOOOOOOO", getFiveMinutesRow(23))
-        Assert.assertNotEquals("YYRYYRYOOOO", getFiveMinutesRow(35))
+        Assert.assertNotEquals("YYRYYRYYRYY", getFiveMinutesRow(35))
     }
 
     @Throws(ParseException::class)
@@ -97,7 +97,7 @@ class BerlinClockTest {
     private fun getFiveMinutesRow(minutes: Int): String {
         val result = StringBuilder("OOOOOOOOOOO")
 
-        for (i in 0 until minutes % 5) {
+        for (i in 0 until minutes / 5) {
             if ((i + 1) % 3 == 0) {
                 result.replace(i, i + 1, "R")
             } else {
