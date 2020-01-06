@@ -19,6 +19,11 @@ class BerlinClockTest {
         verifyTimeFormat("21:30")
     }
 
+    @Test(expected = IllegalArgumentException::class)
+    fun `Given verifyTimeFormat function returns invalid format exception when invalid hours passed`(){
+        verifyTimeFormat("40:30:00")
+    }
+
     @Throws(ParseException::class)
     fun verifyTimeFormat(time: String) {
         if(TimeValidator.getInstance().validate(time, "HH:mm:ss", Locale.forLanguageTag("de-DE")) == null) {
