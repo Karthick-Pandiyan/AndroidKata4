@@ -133,6 +133,11 @@ class BerlinClockTest {
         Assert.assertEquals("O", getSecondsLamp(59))
     }
 
+    @Test
+    fun `Given transformToBerlinTime functions should return Berlin clock when 0 hour, 0 Minute, 0 Second passed`(){
+        Assert.assertEquals("YOOOOOOOOOOOOOOOOOOOOOOO", transformToBerlinTime("00:00:00"))
+    }
+
     @Throws(ParseException::class)
     fun verifyTimeFormat(time: String) {
         if(TimeValidator.getInstance().validate(time, "HH:mm:ss", Locale.forLanguageTag("de-DE")) == null) {
