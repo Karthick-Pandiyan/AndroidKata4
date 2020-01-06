@@ -121,6 +121,12 @@ class BerlinClockTest {
         Assert.assertEquals("RRRO", getFiveHoursRow(16))
     }
 
+    @Test
+    fun `Given getSecondsLamp function returns unexpected seconds lamp when seconds are passed`() {
+        Assert.assertNotEquals("O", getSecondsLamp(0))
+        Assert.assertNotEquals("Y", getSecondsLamp(59))
+    }
+
     @Throws(ParseException::class)
     fun verifyTimeFormat(time: String) {
         if(TimeValidator.getInstance().validate(time, "HH:mm:ss", Locale.forLanguageTag("de-DE")) == null) {
