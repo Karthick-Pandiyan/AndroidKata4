@@ -132,6 +132,7 @@ class BerlinClockTest {
         Assert.assertEquals("Y", getSecondsLamp(0))
         Assert.assertEquals("O", getSecondsLamp(59))
     }
+
     @Throws(ParseException::class)
     fun verifyTimeFormat(time: String) {
         if(TimeValidator.getInstance().validate(time, "HH:mm:ss", Locale.forLanguageTag("de-DE")) == null) {
@@ -140,20 +141,18 @@ class BerlinClockTest {
     }
 
     @Throws(ParseException::class)
-    fun transformToBerlinTime(time: String): Array<String> {
+    fun transformToBerlinTime(time: String): String {
         verifyTimeFormat(time)
         // retrieve hours
-        val timeComponents = time.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+        val timeComponents = time.split(":")
         val hours = Integer.parseInt(timeComponents[0])
         val minutes = Integer.parseInt(timeComponents[1])
         val seconds = Integer.parseInt(timeComponents[2])
-        return arrayOf(
-            getSecondsLamp(seconds),
-            getFiveHoursRow(hours),
-            getSingleHourRow(hours),
-            getFiveMinutesRow(minutes),
+        return getSecondsLamp(seconds) +
+            getFiveHoursRow(hours) +
+            getSingleHourRow(hours) +
+            getFiveMinutesRow(minutes) +
             getSingleMinuteRow(minutes)
-        )
     }
 
     private fun getSingleMinuteRow(minutes: Int): String {
