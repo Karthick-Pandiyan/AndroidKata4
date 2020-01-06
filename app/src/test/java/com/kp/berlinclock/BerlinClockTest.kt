@@ -85,4 +85,17 @@ class BerlinClockTest {
         }
         return result.toString()
     }
+
+    private fun getFiveMinutesRow(minutes: Int): String {
+        val result = StringBuilder("OOOOOOOOOOO")
+
+        for (i in 0 until minutes % 5) {
+            if ((i + 1) % 3 == 0) {
+                result.replace(i, i + 1, "R")
+            } else {
+                result.replace(i, i + 1, "Y")
+            }
+        }
+        return result.toString()
+    }
 }
