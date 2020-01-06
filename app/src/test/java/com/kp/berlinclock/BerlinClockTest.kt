@@ -95,6 +95,15 @@ class BerlinClockTest {
         Assert.assertNotEquals("RRRR", getSingleHourRow(8))
     }
 
+    @Test
+    fun `Given getSingleHourRow function returns expected Single hour row when hour is passed`(){
+        Assert.assertEquals("OOOO", getSingleHourRow(0))
+        Assert.assertEquals("RRRO", getSingleHourRow(23))
+        Assert.assertEquals("RROO", getSingleHourRow(2))
+        Assert.assertEquals("RRRO", getSingleHourRow(8))
+        Assert.assertEquals("RRRR", getSingleHourRow(14))
+    }
+
     @Throws(ParseException::class)
     fun verifyTimeFormat(time: String) {
         if(TimeValidator.getInstance().validate(time, "HH:mm:ss", Locale.forLanguageTag("de-DE")) == null) {
