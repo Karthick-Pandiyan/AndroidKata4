@@ -138,6 +138,11 @@ class BerlinClockTest {
         Assert.assertEquals("YOOOOOOOOOOOOOOOOOOOOOOO", transformToBerlinTime("00:00:00"))
     }
 
+    @Test
+    fun `Given transformToBerlinTime functions should return Berlin clock when 23 hours, 59 Minutes, 59 Seconds passed`(){
+        Assert.assertEquals("ORRRRRRROYYRYYRYYRYYYYYY", transformToBerlinTime("23:59:59"))
+    }
+
     @Throws(ParseException::class)
     fun verifyTimeFormat(time: String) {
         if(TimeValidator.getInstance().validate(time, "HH:mm:ss", Locale.forLanguageTag("de-DE")) == null) {
