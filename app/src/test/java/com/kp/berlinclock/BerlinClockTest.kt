@@ -167,4 +167,10 @@ class BerlinClockTest {
         }
         return result.toString()
     }
+
+    private fun getSecondsLamp(seconds: Int): String {
+        return if (seconds % 2 == 0) {
+            "Y"
+        } else "O"
+    }
 }
