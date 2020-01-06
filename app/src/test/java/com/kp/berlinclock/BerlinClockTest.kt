@@ -40,4 +40,13 @@ class BerlinClockTest {
                 throw IllegalArgumentException("Cannot parse time - $time")
         }
     }
+
+    private fun getSingleMinuteRow(minutes: Int): String {
+        val result = StringBuilder("OOOO")
+
+        for (i in 0 until minutes % 5) {
+            result.replace(i, i + 1, "Y")
+        }
+        return result.toString()
+    }
 }
